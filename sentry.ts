@@ -34,7 +34,6 @@ const sentryInitialization = (app: Application) => {
         // router: someRouter,
       }),
     ],
-    release: process.env.RELEASE,
     environment: process.env.NODE_ENV,
     // release: "node-express@" + RELEASE,
     autoSessionTracking: false, // default: true
