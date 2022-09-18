@@ -20,7 +20,7 @@ app.get("/toto", async (req: Request, res: Response) => {
       .then((json) => console.log(json));
     throw new Error("Oh no!");
   } catch (error) {
-    catchSentryException("an error occurred");
+    catchSentryException(error);
   }
 });
 
