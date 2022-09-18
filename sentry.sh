@@ -14,7 +14,8 @@ if git push $1 $2; then
 # Workflow to create releases
     npx sentry-cli releases new "$VERSION"
     npx sentry-cli releases set-commits "$VERSION" --auto
-    npx sentry-cli releases files "$VERSION" upload-sourcemaps /
+    npm run build
+    npx sentry-cli releases files "$VERSION" upload-sourcemaps ./dist --ignore-file .sentryignore
     npx sentry-cli releases finalize "$VERSION"
    
 else
