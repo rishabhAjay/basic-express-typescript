@@ -11,6 +11,11 @@ global.__rootdir__ = __dirname || process.cwd();
 declare global {
   var __rootdir__: string;
 }
+
+export const catchSentryException = (error: any) => {
+  Sentry.captureException(error);
+};
+
 const sentryInitialization = (app: Application) => {
   console.log(process.env.SENTRY_DSN);
   Sentry.init({
@@ -29,6 +34,7 @@ const sentryInitialization = (app: Application) => {
         // router: someRouter,
       }),
     ],
+    release: process.env.RELEASE,
     environment: process.env.NODE_ENV,
     // release: "node-express@" + RELEASE,
     autoSessionTracking: false, // default: true

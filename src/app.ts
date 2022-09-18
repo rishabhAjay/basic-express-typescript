@@ -1,6 +1,6 @@
 import express, { Application, Request, Response } from "express";
 import * as Sentry from "@sentry/node";
-import sentryInitialization from "../sentry";
+import sentryInitialization, { catchSentryException } from "../sentry";
 const app: Application = express();
 
 const port: number = 3001;
@@ -12,8 +12,16 @@ app.use(Sentry.Handlers.requestHandler() as express.RequestHandler);
 app.use(Sentry.Handlers.tracingHandler());
 
 // the rest of your app
-app.get("/toto", (req: Request, res: Response) => {
-  res.send("Hello toto");
+app.get("/toto", async (req: Request, res: Response) => {
+  try {
+    res.end("Hello toto");
+    fetch("https://jsonplaceholder.typicode.com/tods/1")
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+    throw new Error("Oh no!");
+  } catch (error) {
+    catchSentryException("an error occurred");
+  }
 });
 
 app.get("/debug-sentry", function mainHandler(req: Request, res: Response) {
