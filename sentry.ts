@@ -1,3 +1,4 @@
+import express from "express";
 import { RewriteFrames } from "@sentry/integrations";
 import * as Sentry from "@sentry/node";
 import dotenv from "dotenv";
@@ -35,12 +36,18 @@ const sentryInitialization = (app: Application) => {
       }),
     ],
     environment: process.env.NODE_ENV,
-    // release: "node-express@" + RELEASE,
     autoSessionTracking: false, // default: true
     // We recommend adjusting this value in production, or using tracesSampler
     // for finer control
     tracesSampleRate: Number(process.env.TRACE_SAMPLE_RATE),
   });
+
+  app.use(Sentry.Handlers.requestHandler() as express.RequestHandler);
+
+  // TracingHandler creates a trace for every incoming request
+  app.use(Sentry.Handlers.tracingHandler());
+
+  app.use(Sentry.Handlers.errorHandler() as express.ErrorRequestHandler);
 };
 
 export default sentryInitialization;

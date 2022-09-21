@@ -8,10 +8,9 @@ if [ "$2" == "" ]; then
     echo "No branch provided"
     exit 1
 fi
-
 if git push $1 $2; then
     VERSION=`npx sentry-cli releases propose-version`
-# Workflow to create releases
+# Workflow to create releases, upload commits and sourcemaps
     npx sentry-cli releases new "$VERSION"
     npx sentry-cli releases set-commits "$VERSION" --auto
     npm run build
