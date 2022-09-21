@@ -1,7 +1,7 @@
 # SENTRY README
 ### Sentry Setup
 - Firstly, install the following packages into your project:  **"@sentry/cli", "@sentry/integrations", "@sentry/node"** and **"@sentry/tracing"**
-<br>
+	<br>
 1. To initialize Sentry in your **Node+Express application**, you need to first make a `.env` file that contains all the Sentry credentials and parameters. Here is the boilerplate: 
 	```
 	SENTRY_AUTH_TOKEN = 
@@ -15,15 +15,15 @@
 	<br>
 2.  To get the **AUTH_TOKEN**, follow these steps after you create a new project on Sentry
 ![sentryReleases](../images/sentryReleases.png)
-<br>
+	<br>
 ![sentryReleases](../images/sentryReleases2.png)
 - Click on `click-here-for-your-token` to allow sentry to make a new *internal integration* for you to generate the token. You will also get the **organization and project name** defined here
-<br>
+	<br>
 3.  To get the **DSN credentials** and **Organization slug**, follow the screenshots given below:
 ![sentryReleases](../images/DSN.png)
-<br>
+	<br>
 ![org slug](../images/orgslug.png)
-<br>
+	<br>
 
 4. To initialize Sentry in your **Typescript** project, copy the following code in a file at the parent directory of your project called `sentry.ts`.  
 	```ts
@@ -130,34 +130,34 @@
 	<br>
 ### Integrations
 - We will cover a **remote repository integration** to one of our projects. There are a lot more services that you can integrate with sentry,
-<br>
+	<br>
 1. Click on a remote repository service(like GitHub) to integrate.
 ![integration](../images/integration1.png)
-<br>
+	<br>
 2.  Add installation.
 ![integration](../images/integration2.png)
-<br>
+	<br>
 3. Click configure. You will be redirected to login to your GitHub account
 ![integration](../images/integration3.png)
-<br>
+	<br>
 4. The choice of granting access to repositories is yours.
 ![integration](../images/integration4.png)
-<br>
+	<br>
 5. As and when GitHub changes its status to **installed**, you can configure the integration for a particular Sentry project.
 ![integration](../images/integration5.png)
-<br>
+	<br>
 6. Add a repository if you haven't already.
 ![integration](../images/integration6.png)
-<br>
+	<br>
 7. Add the code mapper to analyse your code for stack traces.
 ![integration](../images/integration7.png)
-<br>
+	<br>
 - You are now good to go with integrations.
-<br>
+	<br>
 ### Releases
 - You have two ways of creating and pushing new releases to sentry:
-<br>
-###### 1. Through the Sentry.init method
+	<br>
+##### 1. Through the Sentry.init method
 - Adding the `release` option will allow you to add releases as you **commit and push something new to the remote repository** that was integrated. NOTE: **Your release versions must be generated uniquely**. Also note that this **does not automate your commit tracking or the uploading of source maps**. Refer to this forum thread for clarifying on this point: [Integration does not associate commits](https://forum.sentry.io/t/github-integration-doesnt-associate-commits/6542/10)
 	```ts
 	 Sentry.init({
@@ -165,7 +165,7 @@
 	  });
 	```
 	<br>
-###### 2. Through the CLI
+##### 2. Through the CLI
 -  You can run the following commands to create and push releases to Sentry **after you have committed something new to remote**. 
 	```sh
 	VERSION=`npx sentry-cli releases propose-version`
@@ -250,7 +250,7 @@
 	- Associates commits to that release,
 	- Generates sourcemaps,
 	- Uploads sourcemaps to the release
-<br>
+	<br>
 - Doing an `sh sentry.sh origin master` in Windows (*Git Bash shell*) or `./sentry.sh origin master` in Linux will push your commits on master to remote and does all the above tasks.
-<br>
+	<br>
 - **NOTE: The above script is meant for development only. You can modify the script to run after a certain event in production** (or other said environments)
