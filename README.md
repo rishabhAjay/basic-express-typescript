@@ -14,15 +14,15 @@
 	```
 	<br>
 2.  To get the **AUTH_TOKEN**, follow these steps after you create a new project on Sentry
-![sentryReleases](../images/sentryReleases.png)
+![sentryReleases](images/sentryReleases.png)
 	<br>
-![sentryReleases](../images/sentryReleases2.png)
+![sentryReleases](images/sentryReleases2.png)
 - Click on `click-here-for-your-token` to allow sentry to make a new *internal integration* for you to generate the token. You will also get the **organization and project name** defined here
 	<br>
 3.  To get the **DSN credentials** and **Organization slug**, follow the screenshots given below:
-![sentryReleases](../images/DSN.png)
+![sentryReleases](images/DSN.png)
 	<br>
-![org slug](../images/orgslug.png)
+![org slug](images/orgslug.png)
 	<br>
 
 4. To initialize Sentry in your **Typescript** project, copy the following code in a file at the parent directory of your project called `sentry.ts`.  
@@ -132,25 +132,25 @@
 - We will cover a **remote repository integration** to one of our projects. There are a lot more services that you can integrate with sentry,
 	<br>
 1. Click on a remote repository service(like GitHub) to integrate.
-![integration](../images/integration1.png)
+![integration](images/integration1.png)
 	<br>
 2.  Add installation.
-![integration](../images/integration2.png)
+![integration](images/integration2.png)
 	<br>
 3. Click configure. You will be redirected to login to your GitHub account
-![integration](../images/integration3.png)
+![integration](images/integration3.png)
 	<br>
 4. The choice of granting access to repositories is yours.
-![integration](../images/integration4.png)
+![integration](images/integration4.png)
 	<br>
 5. As and when GitHub changes its status to **installed**, you can configure the integration for a particular Sentry project.
-![integration](../images/integration5.png)
+![integration](images/integration5.png)
 	<br>
 6. Add a repository if you haven't already.
-![integration](../images/integration6.png)
+![integration](images/integration6.png)
 	<br>
 7. Add the code mapper to analyse your code for stack traces.
-![integration](../images/integration7.png)
+![integration](images/integration7.png)
 	<br>
 - You are now good to go with integrations.
 	<br>
