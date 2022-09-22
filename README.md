@@ -254,3 +254,11 @@
 - Doing an `sh sentry.sh origin master` in Windows (*Git Bash shell*) or `./sentry.sh origin master` in Linux will push your commits on master to remote and does all the above tasks.
 	<br>
 - **NOTE: The above script is meant for development only. You can modify the script to run after a certain event in production** (or other said environments)
+
+### Data Scrubbing and filters
+
+- To add **data scrubbers**, follow the screenshot below. You can also add custom fields to be scrubbed.
+![data scrubbing](images/dataScrubbing.png)
+	<br>
+- To add filters on certain IPs, you can follow the screenshot below. Ideally, you would want to **block the traffic coming from localhost**.
+![filters](images/filters.png)
